@@ -16,6 +16,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        // Override point for customization after application launch.
+        self.window!.backgroundColor = UIColor.whiteColor()
+        
+        let firstVC=ViewController();
+        let nav1=UINavigationController(rootViewController:firstVC);
+        let image1=UIImage(named:"h.png");
+        nav1.tabBarItem=UITabBarItem(title:"完美食材",image:image1,tag:1);
+        
+        let secondVC=ViewController();
+        let nav2=UINavigationController(rootViewController:secondVC);
+        let image2=UIImage(named:"o.png");
+        nav2.tabBarItem=UITabBarItem(title:"国色天香",image:image2,tag:2);
+        
+        let thirdVC=ViewController();
+        let nav3=UINavigationController(rootViewController:thirdVC);
+        let image3=UIImage(named:"s.png");
+        nav3.tabBarItem=UITabBarItem(title:"实惠经典",image:image3,tag:3);
+        
+        let navArr=[nav1,nav2,nav3];
+        let tabBarController=UITabBarController();
+        tabBarController.viewControllers=navArr;
+        self.window!.rootViewController=tabBarController;
+        
+        self.window!.makeKeyAndVisible()
         return true
     }
 
